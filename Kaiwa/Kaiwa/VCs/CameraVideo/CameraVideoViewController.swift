@@ -21,6 +21,7 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
 //        //b.translatesAutoresizingMaskIntoConstraints = false
 //        return b
 //    }()
+    
     let flipCameraButton : UIButton = {
         let b = SwiftyRecordButton()
         b.translatesAutoresizingMaskIntoConstraints = false
