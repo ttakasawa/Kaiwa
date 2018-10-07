@@ -22,6 +22,7 @@
 		FE15F92F2169DD2B00EB8268 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92C2169DD2B00EB8268 /* VideoViewController.swift */; };
 		FE15F9322169ED1400EB8268 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F9312169ED1400EB8268 /* RecordButton.swift */; };
 		FE15F9342169F01F00EB8268 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F9332169F01F00EB8268 /* LogInViewController.swift */; };
+		FE15F9372169FBC300EB8268 /* Stylables.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F9362169FBC300EB8268 /* Stylables.swift */; };
 		FE2914552169A6EC0074DD26 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914542169A6EC0074DD26 /* UserData.swift */; };
 		FE2914572169A8030074DD26 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914562169A8030074DD26 /* Languages.swift */; };
 		FE29145A2169A9980074DD26 /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914592169A9980074DD26 /* UserNetwork.swift */; };
@@ -67,6 +68,7 @@
 		FE15F92C2169DD2B00EB8268 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		FE15F9312169ED1400EB8268 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		FE15F9332169F01F00EB8268 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		FE15F9362169FBC300EB8268 /* Stylables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylables.swift; sourceTree = "<group>"; };
 		FE2914542169A6EC0074DD26 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FE2914562169A8030074DD26 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		FE2914592169A9980074DD26 /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		B263CFC721696DD9008B68A6 /* Kaiwa */ = {
 			isa = PBXGroup;
 			children = (
+				FE15F9352169FBAC00EB8268 /* Styles */,
 				FE15F9302169ECF800EB8268 /* Extensions */,
 				FE2914582169A8F70074DD26 /* Network */,
 				FE2914532169A6CA0074DD26 /* Models */,
@@ -184,6 +187,14 @@
 				FE15F9312169ED1400EB8268 /* RecordButton.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FE15F9352169FBAC00EB8268 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				FE15F9362169FBC300EB8268 /* Stylables.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		FE2914532169A6CA0074DD26 /* Models */ = {
@@ -407,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE15F9372169FBC300EB8268 /* Stylables.swift in Sources */,
 				FE29145E2169AB290074DD26 /* NetworkManager.swift in Sources */,
 				FE15F92D2169DD2B00EB8268 /* CameraVideoViewController.swift in Sources */,
 				FE15F9342169F01F00EB8268 /* LogInViewController.swift in Sources */,

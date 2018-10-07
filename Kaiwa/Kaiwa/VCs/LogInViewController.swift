@@ -26,6 +26,11 @@ class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(self.tapped), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     @objc func tapped(_ button: TransitionButton) {
         button.startAnimation()
         let nextVC = CameraVideoViewController()
