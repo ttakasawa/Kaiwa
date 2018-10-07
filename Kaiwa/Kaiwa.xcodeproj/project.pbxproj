@@ -20,6 +20,8 @@
 		FE15F92D2169DD2B00EB8268 /* CameraVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92A2169DD2B00EB8268 /* CameraVideoViewController.swift */; };
 		FE15F92E2169DD2B00EB8268 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92B2169DD2B00EB8268 /* PhotoViewController.swift */; };
 		FE15F92F2169DD2B00EB8268 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92C2169DD2B00EB8268 /* VideoViewController.swift */; };
+		FE15F9322169ED1400EB8268 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F9312169ED1400EB8268 /* RecordButton.swift */; };
+		FE15F9342169F01F00EB8268 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F9332169F01F00EB8268 /* LogInViewController.swift */; };
 		FE2914552169A6EC0074DD26 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914542169A6EC0074DD26 /* UserData.swift */; };
 		FE2914572169A8030074DD26 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914562169A8030074DD26 /* Languages.swift */; };
 		FE29145A2169A9980074DD26 /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914592169A9980074DD26 /* UserNetwork.swift */; };
@@ -63,6 +65,8 @@
 		FE15F92A2169DD2B00EB8268 /* CameraVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVideoViewController.swift; sourceTree = "<group>"; };
 		FE15F92B2169DD2B00EB8268 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		FE15F92C2169DD2B00EB8268 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		FE15F9312169ED1400EB8268 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		FE15F9332169F01F00EB8268 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FE2914542169A6EC0074DD26 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FE2914562169A8030074DD26 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		FE2914592169A9980074DD26 /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		B263CFC721696DD9008B68A6 /* Kaiwa */ = {
 			isa = PBXGroup;
 			children = (
+				FE15F9302169ECF800EB8268 /* Extensions */,
 				FE2914582169A8F70074DD26 /* Network */,
 				FE2914532169A6CA0074DD26 /* Models */,
 				B263CFEB2169A2CB008B68A6 /* GoogleService-Info.plist */,
@@ -171,6 +176,14 @@
 				FE15F92C2169DD2B00EB8268 /* VideoViewController.swift */,
 			);
 			path = CameraVideo;
+			sourceTree = "<group>";
+		};
+		FE15F9302169ECF800EB8268 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE15F9312169ED1400EB8268 /* RecordButton.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FE2914532169A6CA0074DD26 /* Models */ = {
@@ -209,6 +222,7 @@
 				FE15F9292169DD2B00EB8268 /* CameraVideo */,
 				FE9883302169730800B83D97 /* HomeViewController.swift */,
 				FE2914682169C8790074DD26 /* AudioViewController.swift */,
+				FE15F9332169F01F00EB8268 /* LogInViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -395,6 +409,7 @@
 			files = (
 				FE29145E2169AB290074DD26 /* NetworkManager.swift in Sources */,
 				FE15F92D2169DD2B00EB8268 /* CameraVideoViewController.swift in Sources */,
+				FE15F9342169F01F00EB8268 /* LogInViewController.swift in Sources */,
 				FE29146B2169CF8C0074DD26 /* APIClient.swift in Sources */,
 				B263CFD121696DDA008B68A6 /* Kaiwa.xcdatamodeld in Sources */,
 				B263CFCB21696DD9008B68A6 /* ViewController.swift in Sources */,
@@ -404,6 +419,7 @@
 				B263CFC921696DD9008B68A6 /* AppDelegate.swift in Sources */,
 				FE2914552169A6EC0074DD26 /* UserData.swift in Sources */,
 				FE15F92F2169DD2B00EB8268 /* VideoViewController.swift in Sources */,
+				FE15F9322169ED1400EB8268 /* RecordButton.swift in Sources */,
 				FE2914632169B3850074DD26 /* UserEndpoint.swift in Sources */,
 				FE9883312169730800B83D97 /* HomeViewController.swift in Sources */,
 				FE2914572169A8030074DD26 /* Languages.swift in Sources */,

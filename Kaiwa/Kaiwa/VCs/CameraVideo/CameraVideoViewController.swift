@@ -85,6 +85,11 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         flashButton.addTarget(self, action: #selector(toggleFlashTapped), for: .touchUpInside)
         exitButton.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
         
+        captureButton.addTarget(self, action: #selector(self.centerButtonPressed), for: .touchUpInside)
+        captureButton.isSelected = false
+        captureButton.isUserInteractionEnabled = true
+        //captureButton.buttonEnabled = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -104,7 +109,9 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         audioEnabled = true
         
         // disable capture button until session starts
-        captureButton.buttonEnabled = false
+        //captureButton.buttonEnabled = false
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,6 +122,42 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func centerButtonPressed(){
+        print("pressed")
+        if (captureButton.isSelected == false) {
+            captureButton.growButton()
+            captureButton.isSelected = true
+            displayOverlayView()
+        }else{
+            captureButton.shrinkButton()
+            captureButton.isSelected = false
+            removeLayer()
+        }
+    }
+    let coverLayer = CALayer()
+    func displayOverlayView(){
+        
+        coverLayer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
+        coverLayer.frame = view.layer.bounds
+        view.layer.insertSublayer(coverLayer, at: 1)
+        
+        let testLabel = UILabel()
+        testLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(testLabel)
+        testLabel.bringSubview(toFront: testLabel)
+        
+        testLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        testLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        testLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        testLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        testLabel.text = "Hello world"
+        testLabel.textColor = .white
+    }
+    func removeLayer(){
+        self.coverLayer.removeFromSuperlayer()
     }
     
     @objc func exitTapped(){
@@ -129,40 +172,7 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        captureButton.delegate = self
-    }
-    
-    func swiftyCamSessionDidStartRunning(_ swiftyCam: SwiftyCamViewController) {
-        print("Session did start running")
-        captureButton.buttonEnabled = true
-    }
-    
-    func swiftyCamSessionDidStopRunning(_ swiftyCam: SwiftyCamViewController) {
-        print("Session did stop running")
-        captureButton.buttonEnabled = false
-    }
-    
-    
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-        let newVC = PhotoViewController(image: photo)
-        self.present(newVC, animated: true, completion: nil)
-    }
-    
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didBeginRecordingVideo camera: SwiftyCamViewController.CameraSelection) {
-        print("Did Begin Recording")
-        captureButton.growButton()
-        hideButtons()
-    }
-    
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishRecordingVideo camera: SwiftyCamViewController.CameraSelection) {
-        print("Did finish Recording")
-        captureButton.shrinkButton()
-        showButtons()
-    }
-    
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishProcessVideoAt url: URL) {
-        let newVC = VideoViewController(videoURL: url)
-        self.present(newVC, animated: true, completion: nil)
+        //captureButton.delegate = self
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {
@@ -176,20 +186,7 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didChangeZoomLevel zoom: CGFloat) {
-        print("Zoom level did change. Level: \(zoom)")
-        print(zoom)
-    }
-    
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didSwitchCameras camera: SwiftyCamViewController.CameraSelection) {
-        print("Camera did change to \(camera.rawValue)")
-        print(camera)
-    }
-    
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFailToRecordVideo error: Error) {
-        print(error)
-    }
+
     
 //    @IBAction func cameraSwitchTapped(_ sender: Any) {
 //        switchCamera()
