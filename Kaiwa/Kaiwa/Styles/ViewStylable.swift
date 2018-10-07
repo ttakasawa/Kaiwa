@@ -16,6 +16,6 @@ protocol ViewStylable {
 
 extension ViewStylable {
     func getButtonCornerRadius() -> CGFloat {
-        return 20
+        return 25
     }
 }

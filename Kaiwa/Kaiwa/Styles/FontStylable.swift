@@ -23,6 +23,6 @@ extension FontStylable {
         return UIFont(name: "SFProDisplay-Semibold", size: 17)!
     }
     func getBoldFont() -> UIFont {
-        return UIFont(name: "SFProText-Bold", size: 17)!
+        return UIFont(name: "SFProText-Bold", size: 70)!
     }
 }

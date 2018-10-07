@@ -22,7 +22,7 @@ extension ColorStylable {
         return UIColor(red: 1.00, green: 0.20, blue: 0.40, alpha: 1.00)
     }
     func getSecondaryColor() -> UIColor {
-        return UIColor(red: 1.00, green: 0.20, blue: 0.40, alpha: 1.00)
+        return UIColor.lightGray
     }
     func getOverlayColor() -> UIColor {
         return UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)

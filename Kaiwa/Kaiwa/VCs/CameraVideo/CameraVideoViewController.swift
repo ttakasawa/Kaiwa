@@ -30,20 +30,21 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
     let flipCameraButton : UIButton = {
         let b = SwiftyRecordButton()
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = UIColor.blue
+        b.setTitle("Flip", for: .normal)
+        b.setTitleColor(.white, for: .normal)
+        
+//        b.setImage(#imageLiteral(resourceName: "flipCameraIcon"), for: .normal)
+//        b.imageView?.contentMode = .scaleAspectFit
+//        b.tintColor = .white
         return b
     }()
-    let flashButton: UIButton = {
-        let b = SwiftyRecordButton()
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = UIColor.red
-        return b
-    }()
+    
     
     let exitButton: UIButton = {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = UIColor.white
+        b.setImage(#imageLiteral(resourceName: "goBackIcon"), for: .normal)
+        b.imageView?.contentMode = .scaleAspectFit
         return b
     }()
     
@@ -55,7 +56,6 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         
         self.view.addSubview(captureButton)
         self.view.addSubview(flipCameraButton)
-        self.view.addSubview(flashButton)
         self.view.addSubview(exitButton)
         
         captureButton.translatesAutoresizingMaskIntoConstraints = false
@@ -72,12 +72,7 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         flipCameraButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -30).isActive = true
         flipCameraButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30).isActive = true
         flipCameraButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        flipCameraButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        flashButton.rightAnchor.constraint(equalTo: self.flipCameraButton.leftAnchor, constant: -20).isActive = true
-        flashButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30).isActive = true
-        flashButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        flashButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        flipCameraButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
         exitButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
         exitButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30).isActive = true
@@ -85,13 +80,15 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         exitButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
         
         flipCameraButton.addTarget(self, action: #selector(cameraSwitchTapped), for: .touchUpInside)
-        flashButton.addTarget(self, action: #selector(toggleFlashTapped), for: .touchUpInside)
+        
         exitButton.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
         
         captureButton.addTarget(self, action: #selector(self.centerButtonPressed), for: .touchUpInside)
         captureButton.isSelected = false
         captureButton.isUserInteractionEnabled = true
         //captureButton.buttonEnabled = true
+        
+        
         
     }
     
@@ -115,10 +112,10 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         baseView.addSubview(scrollView)
         
         
-        baseView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -250).isActive = true
+        baseView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -130).isActive = true
         baseView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         baseView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 24).isActive = true
-        baseView.heightAnchor.constraint(equalTo: baseView.widthAnchor, multiplier: 100.0/329.0).isActive = true
+        baseView.heightAnchor.constraint(equalTo: baseView.widthAnchor, multiplier: 80.0/329.0).isActive = true
         
         scrollView.topAnchor.constraint(equalTo: baseView.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: baseView.bottomAnchor).isActive = true
@@ -171,12 +168,9 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         coverLayer.frame = view.layer.bounds
         view.layer.insertSublayer(coverLayer, at: 1)
         
-        toTextLabel.text = "   "
-        
+        toTextLabel.text = " "
         
         scrollView.addSubview(toTextLabel)
-        
-        
         
         toTextLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
         toTextLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -5).isActive = true
@@ -237,22 +231,18 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         switchCamera()
     }
     
-    @objc func toggleFlashTapped(_ sender: Any) {
-    }
 }
 
 extension CameraVideoViewController {
     
     fileprivate func hideButtons() {
         UIView.animate(withDuration: 0.25) {
-            self.flashButton.alpha = 0.0
             self.flipCameraButton.alpha = 0.0
         }
     }
     
     fileprivate func showButtons() {
         UIView.animate(withDuration: 0.25) {
-            self.flashButton.alpha = 1.0
             self.flipCameraButton.alpha = 1.0
         }
     }

@@ -15,7 +15,6 @@
 		B263CFD621696DE6008B68A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B263CFD421696DE6008B68A6 /* LaunchScreen.storyboard */; };
 		B263CFE121696DE7008B68A6 /* KaiwaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B263CFE021696DE7008B68A6 /* KaiwaTests.swift */; };
 		B263CFEC2169A2CB008B68A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B263CFEB2169A2CB008B68A6 /* GoogleService-Info.plist */; };
-		BA8D59D585969988D7AAB047 /* Pods_Kaiwa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2CFD15ED1ACCDEA2D3DAA6 /* Pods_Kaiwa.framework */; };
 		BEE6BA57134B108309813A03 /* Pods_KaiwaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */; };
 		FE15F92D2169DD2B00EB8268 /* CameraVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92A2169DD2B00EB8268 /* CameraVideoViewController.swift */; };
 		FE15F92E2169DD2B00EB8268 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92B2169DD2B00EB8268 /* PhotoViewController.swift */; };
@@ -39,6 +38,8 @@
 		FEA8EBD4216A48EC00FFD4B6 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FEA8EBD1216A48EB00FFD4B6 /* SF-Pro-Display-Semibold.otf */; };
 		FEA8EBD5216A48EC00FFD4B6 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FEA8EBD2216A48EC00FFD4B6 /* SF-Pro-Display-Medium.otf */; };
 		FEA8EBD6216A48EC00FFD4B6 /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FEA8EBD3216A48EC00FFD4B6 /* SF-Pro-Text-Bold.otf */; };
+		FEA8EBD8216A69AA00FFD4B6 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA8EBD7216A69AA00FFD4B6 /* InputTextField.swift */; };
+		FEA8EBD9216A703900FFD4B6 /* Pods_Kaiwa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2CFD15ED1ACCDEA2D3DAA6 /* Pods_Kaiwa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		FEA8EBD1216A48EB00FFD4B6 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		FEA8EBD2216A48EC00FFD4B6 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		FEA8EBD3216A48EC00FFD4B6 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
+		FEA8EBD7216A69AA00FFD4B6 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		FF2CFD15ED1ACCDEA2D3DAA6 /* Pods_Kaiwa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kaiwa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8D59D585969988D7AAB047 /* Pods_Kaiwa.framework in Frameworks */,
+				FEA8EBD9216A703900FFD4B6 /* Pods_Kaiwa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				FE15F9312169ED1400EB8268 /* RecordButton.swift */,
+				FEA8EBD7216A69AA00FFD4B6 /* InputTextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				FE15F9372169FBC300EB8268 /* Stylables.swift in Sources */,
 				FEA8EBCD216A46A100FFD4B6 /* ColorStylable.swift in Sources */,
 				FE29145E2169AB290074DD26 /* NetworkManager.swift in Sources */,
+				FEA8EBD8216A69AA00FFD4B6 /* InputTextField.swift in Sources */,
 				FE15F92D2169DD2B00EB8268 /* CameraVideoViewController.swift in Sources */,
 				FEA8EBCF216A46CE00FFD4B6 /* ViewStylable.swift in Sources */,
 				FE15F9342169F01F00EB8268 /* LogInViewController.swift in Sources */,
