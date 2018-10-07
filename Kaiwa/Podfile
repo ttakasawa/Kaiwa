@@ -9,6 +9,12 @@ target 'Kaiwa' do
   pod 'Alamofire'
   pod 'TransitionButton'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'AlamofireImage'
+  pod 'CodableFirebase'
+  pod 'SCLAlertView'
   
 
 
