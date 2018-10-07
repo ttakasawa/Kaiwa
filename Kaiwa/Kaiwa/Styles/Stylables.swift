@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol Stylables {
-    
-}
+protocol Stylables: FontStylable, ColorStylable, ViewStylable { }

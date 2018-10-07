@@ -5,22 +5,27 @@
 //  Created by Tomoki Takasawa on 7/7/18.
 //  Copyright © 2018 Tomoki Takasawa. All rights reserved.
 //
+// Part of the code is acquired from https://github.com/jen2/Speech-Recognition-Demo
 
 import Foundation
 import UIKit
 import SwiftyCam
+import Speech
+import SCLAlertView
 
 class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegate {
     
-//    @IBOutlet weak var captureButton    : SwiftyRecordButton!
-//    @IBOutlet weak var flipCameraButton : UIButton!
-//    @IBOutlet weak var flashButton      : UIButton!
     
-//    let captureButton: SwiftyRecordButton = {
-//        let b = SwiftyRecordButton()
-//        //b.translatesAutoresizingMaskIntoConstraints = false
-//        return b
-//    }()
+    let coverLayer = CALayer()
+    let toTextLabel = UILabel()
+    
+    let audioEngine = AVAudioEngine()
+    let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
+    let request = SFSpeechAudioBufferRecognitionRequest()
+    var recognitionTask: SFSpeechRecognitionTask?
+    
+    let scrollView = UIScrollView()
+    let baseView = UIView()
     
     let flipCameraButton : UIButton = {
         let b = SwiftyRecordButton()
@@ -54,11 +59,9 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         self.view.addSubview(exitButton)
         
         captureButton.translatesAutoresizingMaskIntoConstraints = false
-        //captureButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
-        //captureButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        
-        //captureButton.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-        //captureButton.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        toTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
         captureButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         captureButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
@@ -108,15 +111,29 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         allowAutoRotate = true
         audioEnabled = true
         
-        // disable capture button until session starts
-        //captureButton.buttonEnabled = false
+        self.view.addSubview(baseView)
+        baseView.addSubview(scrollView)
         
         
+        baseView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -250).isActive = true
+        baseView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        baseView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 24).isActive = true
+        baseView.heightAnchor.constraint(equalTo: baseView.widthAnchor, multiplier: 100.0/329.0).isActive = true
+        
+        scrollView.topAnchor.constraint(equalTo: baseView.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: baseView.bottomAnchor).isActive = true
+        scrollView.leftAnchor.constraint(equalTo: baseView.leftAnchor).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: baseView.rightAnchor).isActive = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //gradient.frame = baseView.bounds
     }
     
     override func didReceiveMemoryWarning() {
@@ -125,39 +142,67 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
     }
     
     @objc func centerButtonPressed(){
-        print("pressed")
         if (captureButton.isSelected == false) {
             captureButton.growButton()
             captureButton.isSelected = true
             displayOverlayView()
+            
+            self.recordAndRecognizeSpeech()
         }else{
             captureButton.shrinkButton()
             captureButton.isSelected = false
             removeLayer()
+            
+            //request.endAudio()
+            audioEngine.stop()
+            
+            let node = audioEngine.inputNode
+            node.removeTap(onBus: 0)
+            
+            recognitionTask?.cancel()
+            
         }
     }
-    let coverLayer = CALayer()
+    
+    
     func displayOverlayView(){
         
         coverLayer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
         coverLayer.frame = view.layer.bounds
         view.layer.insertSublayer(coverLayer, at: 1)
         
-        let testLabel = UILabel()
-        testLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(testLabel)
-        testLabel.bringSubview(toFront: testLabel)
+        toTextLabel.text = "   "
         
-        testLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        testLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        testLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        testLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
-        testLabel.text = "Hello world"
-        testLabel.textColor = .white
+        scrollView.addSubview(toTextLabel)
+        
+        
+        
+        toTextLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
+        toTextLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -5).isActive = true
+        toTextLabel.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+        toTextLabel.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+        toTextLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        
+        
+        
+        gradient = CAGradientLayer()
+        gradient.frame = baseView.bounds
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor]
+        gradient.locations = [0, 0.1, 0.9, 1]
+        baseView.layer.mask = gradient
+        
+        toTextLabel.bringSubview(toFront: toTextLabel)
+        toTextLabel.textColor = .white
+        toTextLabel.numberOfLines = 0
+        
     }
+    
+    private var gradient: CAGradientLayer!
+    
     func removeLayer(){
         self.coverLayer.removeFromSuperlayer()
+        toTextLabel.removeFromSuperview()
     }
     
     @objc func exitTapped(){
@@ -175,8 +220,9 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         //captureButton.delegate = self
     }
     
+    
+    
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {
-        print("Did focus at point: \(point)")
         focusAnimationAt(point)
     }
     
@@ -187,23 +233,11 @@ class CameraVideoViewController: SwiftyCamViewController, SwiftyCamViewControlle
         present(alertController, animated: true, completion: nil)
     }
 
-    
-//    @IBAction func cameraSwitchTapped(_ sender: Any) {
-//        switchCamera()
-//    }
-    
     @objc func cameraSwitchTapped(_ sender: Any) {
         switchCamera()
     }
     
-//    @IBAction func toggleFlashTapped(_ sender: Any) {
-//        flashEnabled = !flashEnabled
-//        toggleFlashAnimation()
-//    }
-    
     @objc func toggleFlashTapped(_ sender: Any) {
-        flashEnabled = !flashEnabled
-        toggleFlashAnimation()
     }
 }
 
@@ -242,11 +276,87 @@ extension CameraVideoViewController {
         }
     }
     
-    fileprivate func toggleFlashAnimation() {
-//        if flashEnabled == true {
-//            flashButton.setImage(#imageLiteral(resourceName: "flash"), for: UIControlState())
-//        } else {
-//            flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
-//        }
+}
+
+
+extension CameraVideoViewController {
+    //refer to jay2 speech recognition
+    func recordAndRecognizeSpeech() {
+        let node = audioEngine.inputNode
+        let recordingFormat = node.outputFormat(forBus: 0)
+        node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, _) in
+            self.request.append(buffer)
+        }
+        
+        audioEngine.prepare()
+        do {
+            try audioEngine.start()
+        } catch {
+            self.showAlert(message: "There has been an audio engine error.")
+            return print(error)
+        }
+        guard let myRecognizer = SFSpeechRecognizer() else {
+            self.showAlert(message: "Speech recognition is not supported for your current locale.")
+            return
+        }
+        if !myRecognizer.isAvailable {
+            self.showAlert(message: "Speech recognition is not currently available. Check back at a later time.")
+            // Recognizer is not available right now
+            return
+        }
+        recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
+            
+            print(error.debugDescription)
+            
+            if result != nil {
+                
+                if let result = result {
+                    let bestString = result.bestTranscription.formattedString
+                    DispatchQueue.main.async {
+                        self.toTextLabel.text = bestString
+                        self.toTextLabel.setNeedsDisplay()
+                        //TODO: Scroll to bottom here
+                    }
+                    
+                    
+                    var lastString: String = ""
+                    for segment in result.bestTranscription.segments {
+                        let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
+                        lastString = bestString.substring(from: indexTo)
+                    }
+                    //self.checkForColorsSaid(resultString: lastString)
+                }else if let error = error {
+                    self.showAlert(message: "There has been a speech recognition error.")
+                    print(error)
+                }
+            }else{
+//                self.showAlert(message: "There has been a speech recognition error.")
+//                print(error)
+            }
+        })
+    }
+    
+    func showAlert(message: String){
+        SCLAlertView().showInfo("INFO", subTitle: message)
+    }
+    
+    func checkAuthorization(){
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+//            OperationQueue.main.addOperation {
+//                switch authStatus {
+//                case .authorized:
+//                    //self.captureButton.isEnabled = true
+//                case .denied:
+//                    self.captureButton.isEnabled = false
+//                    self.toTextLabel.text = "User denied access to speech recognition"
+//                case .restricted:
+//                    self.captureButton.isEnabled = false
+//                    self.toTextLabel.text = "Speech recognition restricted on this device"
+//                case .notDetermined:
+//                    self.captureButton.isEnabled = false
+//                    self.toTextLabel.text = "Speech recognition not yet authorized"
+//                }
+//            }
+        }
     }
 }

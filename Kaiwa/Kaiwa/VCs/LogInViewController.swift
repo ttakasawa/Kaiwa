@@ -34,10 +34,11 @@ class LoginViewController: UIViewController {
     @objc func tapped(_ button: TransitionButton) {
         button.startAnimation()
         let nextVC = CameraVideoViewController()
+        //let nextVC = AudioViewController()
         let qualityOfServiceClass = DispatchQoS.QoSClass.background
         let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
         backgroundQueue.async {
-            sleep(3)
+            sleep(1)
             DispatchQueue.main.async(execute: {
                 () -> Void in
                 

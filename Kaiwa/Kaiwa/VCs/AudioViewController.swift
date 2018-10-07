@@ -12,6 +12,8 @@ class AudioViewController : UIViewController, URLSessionDataDelegate {
     
     var session: URLSession!
     var accumulated = Data()
+    let textLabel = UILabel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,19 +43,24 @@ class AudioViewController : UIViewController, URLSessionDataDelegate {
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         self.session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue.main)
         
+        
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(textLabel)
+        textLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        textLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50).isActive = true
+        
     }
     
     
     
     @objc func startIdentity() {
-        self.session.uploadTask(with: AudioViewController.testRequest, from: AudioViewController.testBody) { (data, response, error) in
-            AudioViewController.print(error: error, response: response, body: data)
-            }.resume()
+        textLabel.text = "ellod"
     }
     
     @objc func startChunked() {
-        self.accumulated.removeAll()
-        self.session.uploadTask(withStreamedRequest: AudioViewController.testRequest).resume()
+        DispatchQueue.main.async {
+            self.textLabel.text = "hola"
+        }
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, needNewBodyStream completionHandler: @escaping (InputStream?) -> Void) {
