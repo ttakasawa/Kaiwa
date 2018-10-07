@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
     @objc func tapped() {
         if let navigator = self.navigationController {
-            navigator.pushViewController(HomeViewController(), animated: true)
+            navigator.pushViewController(CameraVideoViewController(), animated: true)
         }
     }
 
