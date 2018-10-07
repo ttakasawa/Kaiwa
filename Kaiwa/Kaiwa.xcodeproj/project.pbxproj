@@ -14,6 +14,7 @@
 		B263CFD321696DE6008B68A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B263CFD221696DE6008B68A6 /* Assets.xcassets */; };
 		B263CFD621696DE6008B68A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B263CFD421696DE6008B68A6 /* LaunchScreen.storyboard */; };
 		B263CFE121696DE7008B68A6 /* KaiwaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B263CFE021696DE7008B68A6 /* KaiwaTests.swift */; };
+		B263CFEC2169A2CB008B68A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B263CFEB2169A2CB008B68A6 /* GoogleService-Info.plist */; };
 		BA8D59D585969988D7AAB047 /* Pods_Kaiwa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2CFD15ED1ACCDEA2D3DAA6 /* Pods_Kaiwa.framework */; };
 		BEE6BA57134B108309813A03 /* Pods_KaiwaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */; };
 		FE9883312169730800B83D97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9883302169730800B83D97 /* HomeViewController.swift */; };
@@ -44,6 +45,7 @@
 		B263CFDC21696DE6008B68A6 /* KaiwaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaiwaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B263CFE021696DE7008B68A6 /* KaiwaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiwaTests.swift; sourceTree = "<group>"; };
 		B263CFE221696DE7008B68A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B263CFEB2169A2CB008B68A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1E2E4BC62A7FE4524E283B2 /* Pods-KaiwaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaiwaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaiwaTests/Pods-KaiwaTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaiwaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9883302169730800B83D97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		B263CFC721696DD9008B68A6 /* Kaiwa */ = {
 			isa = PBXGroup;
 			children = (
+				B263CFEB2169A2CB008B68A6 /* GoogleService-Info.plist */,
 				FE98832F216972D200B83D97 /* VCs */,
 				B263CFC821696DD9008B68A6 /* AppDelegate.swift */,
 				B263CFCA21696DD9008B68A6 /* ViewController.swift */,
@@ -229,6 +232,7 @@
 				B263CFD621696DE6008B68A6 /* LaunchScreen.storyboard in Resources */,
 				B263CFD321696DE6008B68A6 /* Assets.xcassets in Resources */,
 				B263CFCE21696DDA008B68A6 /* Main.storyboard in Resources */,
+				B263CFEC2169A2CB008B68A6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,12 +290,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Kaiwa/Pods-Kaiwa-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework",
+				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyCam.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -474,10 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ES7WL3NG8;
 				INFOPLIST_FILE = Kaiwa/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaiwa.translator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -493,10 +500,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ES7WL3NG8;
 				INFOPLIST_FILE = Kaiwa/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaiwa.translator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -513,11 +517,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ES7WL3NG8;
 				INFOPLIST_FILE = KaiwaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaiwa.translator.KaiwaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -535,11 +535,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ES7WL3NG8;
 				INFOPLIST_FILE = KaiwaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaiwa.translator.KaiwaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
