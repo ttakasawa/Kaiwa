@@ -20,6 +20,9 @@
 		B2DA02B42169DAF600EA2D15 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA02B12169DAF600EA2D15 /* PhotoViewController.swift */; };
 		BA8D59D585969988D7AAB047 /* Pods_Kaiwa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2CFD15ED1ACCDEA2D3DAA6 /* Pods_Kaiwa.framework */; };
 		BEE6BA57134B108309813A03 /* Pods_KaiwaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */; };
+		FE15F92D2169DD2B00EB8268 /* CameraVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92A2169DD2B00EB8268 /* CameraVideoViewController.swift */; };
+		FE15F92E2169DD2B00EB8268 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92B2169DD2B00EB8268 /* PhotoViewController.swift */; };
+		FE15F92F2169DD2B00EB8268 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE15F92C2169DD2B00EB8268 /* VideoViewController.swift */; };
 		FE2914552169A6EC0074DD26 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914542169A6EC0074DD26 /* UserData.swift */; };
 		FE2914572169A8030074DD26 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914562169A8030074DD26 /* Languages.swift */; };
 		FE29145A2169A9980074DD26 /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914592169A9980074DD26 /* UserNetwork.swift */; };
@@ -63,6 +66,9 @@
 		B2DA02B12169DAF600EA2D15 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C1E2E4BC62A7FE4524E283B2 /* Pods-KaiwaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaiwaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaiwaTests/Pods-KaiwaTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaiwaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE15F92A2169DD2B00EB8268 /* CameraVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVideoViewController.swift; sourceTree = "<group>"; };
+		FE15F92B2169DD2B00EB8268 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		FE15F92C2169DD2B00EB8268 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		FE2914542169A6EC0074DD26 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FE2914562169A8030074DD26 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		FE2914592169A9980074DD26 /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
@@ -163,12 +169,21 @@
 			path = KaiwaTests;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		B2DA02AE2169DAF600EA2D15 /* CameraVideo */ = {
 			isa = PBXGroup;
 			children = (
 				B2DA02AF2169DAF600EA2D15 /* VideoViewController.swift */,
 				B2DA02B02169DAF600EA2D15 /* CameraVideoViewController.swift */,
 				B2DA02B12169DAF600EA2D15 /* PhotoViewController.swift */,
+=======
+		FE15F9292169DD2B00EB8268 /* CameraVideo */ = {
+			isa = PBXGroup;
+			children = (
+				FE15F92A2169DD2B00EB8268 /* CameraVideoViewController.swift */,
+				FE15F92B2169DD2B00EB8268 /* PhotoViewController.swift */,
+				FE15F92C2169DD2B00EB8268 /* VideoViewController.swift */,
+>>>>>>> da2fe2a4e4c5177c42521d14d3253585d3909625
 			);
 			path = CameraVideo;
 			sourceTree = "<group>";
@@ -206,7 +221,11 @@
 		FE98832F216972D200B83D97 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				B2DA02AE2169DAF600EA2D15 /* CameraVideo */,
+=======
+				FE15F9292169DD2B00EB8268 /* CameraVideo */,
+>>>>>>> da2fe2a4e4c5177c42521d14d3253585d3909625
 				FE9883302169730800B83D97 /* HomeViewController.swift */,
 				FE2914682169C8790074DD26 /* AudioViewController.swift */,
 			);
@@ -394,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE29145E2169AB290074DD26 /* NetworkManager.swift in Sources */,
+				FE15F92D2169DD2B00EB8268 /* CameraVideoViewController.swift in Sources */,
 				FE29146B2169CF8C0074DD26 /* APIClient.swift in Sources */,
 				B263CFD121696DDA008B68A6 /* Kaiwa.xcdatamodeld in Sources */,
 				B263CFCB21696DD9008B68A6 /* ViewController.swift in Sources */,
@@ -404,11 +424,13 @@
 				B2DA02B32169DAF600EA2D15 /* CameraVideoViewController.swift in Sources */,
 				B2DA02B22169DAF600EA2D15 /* VideoViewController.swift in Sources */,
 				FE2914552169A6EC0074DD26 /* UserData.swift in Sources */,
+				FE15F92F2169DD2B00EB8268 /* VideoViewController.swift in Sources */,
 				FE2914632169B3850074DD26 /* UserEndpoint.swift in Sources */,
 				FE9883312169730800B83D97 /* HomeViewController.swift in Sources */,
 				B2DA02B42169DAF600EA2D15 /* PhotoViewController.swift in Sources */,
 				FE2914572169A8030074DD26 /* Languages.swift in Sources */,
 				FE2914692169C8790074DD26 /* AudioViewController.swift in Sources */,
+				FE15F92E2169DD2B00EB8268 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
