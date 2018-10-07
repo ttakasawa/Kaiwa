@@ -15,6 +15,9 @@
 		B263CFD621696DE6008B68A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B263CFD421696DE6008B68A6 /* LaunchScreen.storyboard */; };
 		B263CFE121696DE7008B68A6 /* KaiwaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B263CFE021696DE7008B68A6 /* KaiwaTests.swift */; };
 		B263CFEC2169A2CB008B68A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B263CFEB2169A2CB008B68A6 /* GoogleService-Info.plist */; };
+		B2DA02B22169DAF600EA2D15 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA02AF2169DAF600EA2D15 /* VideoViewController.swift */; };
+		B2DA02B32169DAF600EA2D15 /* CameraVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA02B02169DAF600EA2D15 /* CameraVideoViewController.swift */; };
+		B2DA02B42169DAF600EA2D15 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA02B12169DAF600EA2D15 /* PhotoViewController.swift */; };
 		BA8D59D585969988D7AAB047 /* Pods_Kaiwa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2CFD15ED1ACCDEA2D3DAA6 /* Pods_Kaiwa.framework */; };
 		BEE6BA57134B108309813A03 /* Pods_KaiwaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */; };
 		FE2914552169A6EC0074DD26 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2914542169A6EC0074DD26 /* UserData.swift */; };
@@ -55,6 +58,9 @@
 		B263CFE021696DE7008B68A6 /* KaiwaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiwaTests.swift; sourceTree = "<group>"; };
 		B263CFE221696DE7008B68A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B263CFEB2169A2CB008B68A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B2DA02AF2169DAF600EA2D15 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		B2DA02B02169DAF600EA2D15 /* CameraVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVideoViewController.swift; sourceTree = "<group>"; };
+		B2DA02B12169DAF600EA2D15 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		C1E2E4BC62A7FE4524E283B2 /* Pods-KaiwaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaiwaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaiwaTests/Pods-KaiwaTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaiwaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2914542169A6EC0074DD26 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -157,6 +163,16 @@
 			path = KaiwaTests;
 			sourceTree = "<group>";
 		};
+		B2DA02AE2169DAF600EA2D15 /* CameraVideo */ = {
+			isa = PBXGroup;
+			children = (
+				B2DA02AF2169DAF600EA2D15 /* VideoViewController.swift */,
+				B2DA02B02169DAF600EA2D15 /* CameraVideoViewController.swift */,
+				B2DA02B12169DAF600EA2D15 /* PhotoViewController.swift */,
+			);
+			path = CameraVideo;
+			sourceTree = "<group>";
+		};
 		FE2914532169A6CA0074DD26 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +206,7 @@
 		FE98832F216972D200B83D97 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				B2DA02AE2169DAF600EA2D15 /* CameraVideo */,
 				FE9883302169730800B83D97 /* HomeViewController.swift */,
 				FE2914682169C8790074DD26 /* AudioViewController.swift */,
 			);
@@ -384,9 +401,12 @@
 				FE2914602169B21C0074DD26 /* Endpoints.swift in Sources */,
 				FE29145A2169A9980074DD26 /* UserNetwork.swift in Sources */,
 				B263CFC921696DD9008B68A6 /* AppDelegate.swift in Sources */,
+				B2DA02B32169DAF600EA2D15 /* CameraVideoViewController.swift in Sources */,
+				B2DA02B22169DAF600EA2D15 /* VideoViewController.swift in Sources */,
 				FE2914552169A6EC0074DD26 /* UserData.swift in Sources */,
 				FE2914632169B3850074DD26 /* UserEndpoint.swift in Sources */,
 				FE9883312169730800B83D97 /* HomeViewController.swift in Sources */,
+				B2DA02B42169DAF600EA2D15 /* PhotoViewController.swift in Sources */,
 				FE2914572169A8030074DD26 /* Languages.swift in Sources */,
 				FE2914692169C8790074DD26 /* AudioViewController.swift in Sources */,
 			);
