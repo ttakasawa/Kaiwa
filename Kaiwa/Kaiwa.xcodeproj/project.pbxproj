@@ -16,6 +16,7 @@
 		B263CFE121696DE7008B68A6 /* KaiwaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B263CFE021696DE7008B68A6 /* KaiwaTests.swift */; };
 		BA8D59D585969988D7AAB047 /* Pods_Kaiwa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2CFD15ED1ACCDEA2D3DAA6 /* Pods_Kaiwa.framework */; };
 		BEE6BA57134B108309813A03 /* Pods_KaiwaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */; };
+		FE9883312169730800B83D97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9883302169730800B83D97 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		B263CFE221696DE7008B68A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1E2E4BC62A7FE4524E283B2 /* Pods-KaiwaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaiwaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaiwaTests/Pods-KaiwaTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC3805C34B7C564568CB567D /* Pods_KaiwaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaiwaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE9883302169730800B83D97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FF2CFD15ED1ACCDEA2D3DAA6 /* Pods_Kaiwa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kaiwa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 		B263CFC721696DD9008B68A6 /* Kaiwa */ = {
 			isa = PBXGroup;
 			children = (
+				FE98832F216972D200B83D97 /* VCs */,
 				B263CFC821696DD9008B68A6 /* AppDelegate.swift */,
 				B263CFCA21696DD9008B68A6 /* ViewController.swift */,
 				B263CFCC21696DDA008B68A6 /* Main.storyboard */,
@@ -129,6 +132,14 @@
 				B263CFE221696DE7008B68A6 /* Info.plist */,
 			);
 			path = KaiwaTests;
+			sourceTree = "<group>";
+		};
+		FE98832F216972D200B83D97 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				FE9883302169730800B83D97 /* HomeViewController.swift */,
+			);
+			path = VCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +308,7 @@
 				B263CFD121696DDA008B68A6 /* Kaiwa.xcdatamodeld in Sources */,
 				B263CFCB21696DD9008B68A6 /* ViewController.swift in Sources */,
 				B263CFC921696DD9008B68A6 /* AppDelegate.swift in Sources */,
+				FE9883312169730800B83D97 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +474,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ES7WL3NG8;
 				INFOPLIST_FILE = Kaiwa/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaiwa.translator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -478,7 +493,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ES7WL3NG8;
 				INFOPLIST_FILE = Kaiwa/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaiwa.translator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -495,7 +513,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ES7WL3NG8;
 				INFOPLIST_FILE = KaiwaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaiwa.translator.KaiwaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -513,7 +535,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ES7WL3NG8;
 				INFOPLIST_FILE = KaiwaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kaiwa.translator.KaiwaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
