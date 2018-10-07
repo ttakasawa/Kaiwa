@@ -150,7 +150,10 @@ class HomeViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         settings.livePhotoVideoCodecType = .jpeg
         stillImageOutput.capturePhoto(with: settings, delegate: self)
         
-        captureSession.addOutput(stillImageOutput)
+        if (captureSession?.canAddOutput(stillImageOutput))!{
+            captureSession.addOutput(stillImageOutput)
+        }
+        
         let capturePreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         
         capturePreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
